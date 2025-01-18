@@ -1,5 +1,6 @@
 'use client';
-import { Box, Typography, Button, Container } from '@mui/material';
+import ComponentButton from '@/components/ComponentButton';
+import { Box, Typography, Container } from '@mui/material';
 
 export default function Home() {
   return (
@@ -8,10 +9,8 @@ export default function Home() {
         <Typography variant="h2" component="h1" gutterBottom>
           Página Home 2
         </Typography>
-        <Button variant="contained" color="primary">
-          Botão de Exemplo
-        </Button>
       </Box>
+      <ComponentButton href="/sobre">Ir para a página Sobre</ComponentButton>
     </Container>
   );
 } 
