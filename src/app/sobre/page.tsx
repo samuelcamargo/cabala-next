@@ -1,4 +1,5 @@
 'use client';
+import ComponentButton from '@/components/ComponentButton';
 import { Box, Typography, Container } from '@mui/material';
 
 export default function Sobre() {
@@ -9,6 +10,7 @@ export default function Sobre() {
           Página Sobre 2
         </Typography>
       </Box>
+      <ComponentButton href="/home">Ir para a página Home</ComponentButton>
     </Container>
   );
 } 
