@@ -51,7 +51,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         return key;
       }
       
-      const value = current[k];
+      const value: string | TranslationObject = current[k];
       if (value === undefined) {
         return key;
       }
