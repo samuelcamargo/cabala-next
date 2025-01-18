@@ -5,8 +5,15 @@ import en from '@/i18n/locales/en';
 import es from '@/i18n/locales/es';
 
 type Language = 'pt-BR' | 'en' | 'es';
-type TranslationValue = string | Record<string, unknown>;
-type Translations = Record<string, Record<string, TranslationValue>>;
+
+// Melhorando a tipagem para as traduções
+interface TranslationObject {
+  [key: string]: string | TranslationObject;
+}
+
+type Translations = {
+  [key in Language]: TranslationObject;
+};
 
 const translations: Translations = {
   'pt-BR': ptBR,
@@ -37,16 +44,22 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const t = (key: string): string => {
     const keys = key.split('.');
-    let value: TranslationValue = translations[language];
-    
+    let current: TranslationObject | string = translations[language];
+
     for (const k of keys) {
-      if (typeof value === 'object' && value !== null) {
-        value = value[k];
+      if (typeof current !== 'object') {
+        return key;
       }
-      if (value === undefined) return key;
+      
+      const value: string | TranslationObject = current[k];
+      if (value === undefined) {
+        return key;
+      }
+      
+      current = value;
     }
-    
-    return String(value);
+
+    return typeof current === 'string' ? current : key;
   };
 
   return (
