@@ -16,7 +16,7 @@ const ComponentButton: FC<ComponentButtonProps> = ({
 }) => {
   return (
     <Button
-      component={Link as unknown as React.ElementType}
+      component={Link}
       href={href}
       variant={variant}
       color={color}
