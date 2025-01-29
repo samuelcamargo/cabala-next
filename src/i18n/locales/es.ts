@@ -25,6 +25,14 @@ const es = {
     rational: 'Muestra tu forma de pensar y analizar',
     destiny: 'Indica tu camino y propósito',
     faith: 'Representa tu conexión espiritual'
+  },
+  about: {
+    welcome: 'Bienvenido a Cabala Online.',
+    description: 'Cabala es un cálculo que te permite descubrir qué orishas rigen tu corona.',
+    dayDigits: 'Los dos primeros números representan el 1º y 2º dígito de tu día de nacimiento.',
+    monthDigits: 'Los siguientes dos números representan el 1º y 2º dígito de tu mes de nacimiento.',
+    yearDigits: 'Los siguientes cuatro números representan del 1º al 4º dígito de tu año de nacimiento.',
+    example: 'Ejemplo - 10/02/1989'
   }
 };
 
