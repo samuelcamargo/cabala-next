@@ -48,11 +48,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
     for (const k of keys) {
       if (typeof current !== 'object') {
+        console.log(`Key not found: ${key}`); // Para debug
         return key;
       }
       
       const value: string | TranslationObject = current[k];
       if (value === undefined) {
+        console.log(`Key not found: ${key}`); // Para debug
         return key;
       }
       
