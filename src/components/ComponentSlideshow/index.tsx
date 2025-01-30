@@ -32,6 +32,7 @@ export default function ComponentSlideshow({
       <Swiper
         grabCursor={true}
         slidesPerView={1}
+        loop={true}
         modules={[Pagination, Navigation, Autoplay]}
         pagination={{ clickable: true }}
         navigation={!isMobile}

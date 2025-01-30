@@ -20,9 +20,10 @@ export default function ScrollArrow() {
     <Fade in={true} timeout={1000}>
       <Box
         sx={{
-          position: 'fixed',
+          position: 'absolute',
           bottom: 40,
-          left: 40,
+          left: '50%',
+          transform: 'translateX(-50%)',
           zIndex: 10,
           animation: 'bounce 2s infinite'
         }}
@@ -31,13 +32,13 @@ export default function ScrollArrow() {
           onClick={scrollToContent}
           sx={{
             color: 'white',
-            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            backgroundColor: 'rgba(255, 255, 255, 0.2)',
             backdropFilter: 'blur(4px)',
             '&:hover': {
-              backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              backgroundColor: 'rgba(255, 255, 255, 0.3)',
             },
-            width: 48,
-            height: 48,
+            width: 56,
+            height: 56,
             '@keyframes bounce': {
               '0%, 20%, 50%, 80%, 100%': {
                 transform: 'translateY(0)',
@@ -51,7 +52,7 @@ export default function ScrollArrow() {
             },
           }}
         >
-          <KeyboardArrowDownIcon sx={{ fontSize: 32 }} />
+          <KeyboardArrowDownIcon sx={{ fontSize: 37 }} />
         </IconButton>
       </Box>
     </Fade>
