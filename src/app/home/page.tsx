@@ -105,8 +105,9 @@ export default function Home() {
         }}
       >
         <Box sx={{ 
-          mt: 2,
-          p: 4, 
+          mt: 5,
+          mb: 5,
+          p: 5, 
           backgroundColor: theme => theme.palette.mode === 'dark' 
             ? 'rgba(0, 0, 0, 0.6)' 
             : 'rgba(255, 255, 255, 0.9)',

@@ -2,6 +2,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
+import ScrollArrow from '@/components/ScrollArrow';
 
 interface Slide {
   title: string;
@@ -23,20 +24,17 @@ export default function ComponentSlideshow({
 
   return (
     <Box sx={{ 
-      width: '100%', 
-      height: {
-        xs: '300px', // altura para mobile
-        sm: '350px', // altura para tablets
-        md: '400px'  // altura para desktop
-      },
-      marginTop: 0, // removido o marginTop negativo
+      width: '100%',
+      height: '100vh', // Altura total da viewport
+      position: 'relative',
+      backgroundColor: 'black' // Fundo preto como no exemplo
     }}>
       <Swiper
         grabCursor={true}
         slidesPerView={1}
         modules={[Pagination, Navigation, Autoplay]}
         pagination={{ clickable: true }}
-        navigation={!isMobile} // desativa navegação em mobile
+        navigation={!isMobile}
         autoplay={autoplay ? {
           delay: 3000,
           disableOnInteraction: false,
@@ -67,7 +65,7 @@ export default function ComponentSlideshow({
                 left: 0,
                 right: 0,
                 bottom: 0,
-                backgroundColor: 'rgba(0,0,0,0.4)',
+                backgroundColor: 'rgba(0,0,0,0.6)', // Overlay mais escuro como no exemplo
                 zIndex: 1
               },
               '& > *': {
@@ -78,32 +76,35 @@ export default function ComponentSlideshow({
               }
             }}>
               <Typography 
-                variant={isMobile ? "h5" : "h4"}
+                variant={isMobile ? "h3" : "h1"}
                 gutterBottom 
                 align="center"
                 sx={{ 
-                  maxWidth: '80%',
+                  maxWidth: '90%',
                   mb: 3,
                   fontSize: {
-                    xs: '1.5rem',
-                    sm: '2rem',
-                    md: '2.5rem'
-                  }
+                    xs: '2.5rem',
+                    sm: '4rem',
+                    md: '6rem'
+                  },
+                  fontWeight: 'bold',
+                  letterSpacing: '0.2rem'
                 }}
               >
                 {slide.title}
               </Typography>
               <Typography 
-                variant="body1" 
+                variant="h5" 
                 align="center"
                 sx={{ 
-                  maxWidth: '70%',
+                  maxWidth: '80%',
                   fontSize: {
-                    xs: '0.9rem',
-                    sm: '1rem',
-                    md: '1.1rem'
+                    xs: '1rem',
+                    sm: '1.5rem',
+                    md: '2rem'
                   },
-                  px: 2
+                  px: 2,
+                  opacity: 0.9
                 }}
               >
                 {slide.description}
@@ -112,6 +113,7 @@ export default function ComponentSlideshow({
           </SwiperSlide>
         ))}
       </Swiper>
+      <ScrollArrow />
     </Box>
   );
 } 

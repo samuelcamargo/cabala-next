@@ -12,6 +12,7 @@ import 'swiper/css';
 import 'swiper/css/effect-cards';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import Footer from '@/components/ComponentFooter';
 
 function RootLayoutContent({ children }: { children: React.ReactNode }) {
   const { isDarkMode } = useTheme();
@@ -19,18 +20,26 @@ function RootLayoutContent({ children }: { children: React.ReactNode }) {
   return (
     <MuiThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <CssBaseline />
-      <GradientBackground>
-        <Navbar titulo="Cabala Online" />
-        <Box sx={{ 
-          flex: 1,
-          py: 0,
-          '& > div': {
-            paddingTop: '0 !important'
-          }
-        }}>
-          {children}
-        </Box>
-      </GradientBackground>
+      <Box sx={{ 
+        display: 'flex', 
+        flexDirection: 'column',
+        minHeight: '100vh' 
+      }}>
+        <GradientBackground>
+          <Navbar titulo="Cabala Online" />
+          <Box sx={{ 
+            flex: 1,
+            py: 0,
+            '& > div': {
+              paddingTop: '0 !important'
+            },
+            width: '100%'
+          }}>
+            {children}
+          </Box>
+          <Footer />
+        </GradientBackground>
+      </Box>
     </MuiThemeProvider>
   );
 }

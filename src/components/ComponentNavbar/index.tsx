@@ -36,7 +36,17 @@ export default function Navbar({ titulo }: NavbarProps) {
   ];
 
   return (
-    <AppBar position="static">
+    <AppBar 
+      position="fixed"
+      sx={{
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        backdropFilter: 'blur(10px)',
+        boxShadow: 'none',
+        '& .MuiToolbar-root': {
+          minHeight: '64px'
+        }
+      }}
+    >
       <Toolbar>
         <IconButton
           size="large"
