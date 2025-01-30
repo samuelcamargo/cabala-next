@@ -1,48 +1,12 @@
-'use client';
-import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { lightTheme, darkTheme } from '../theme/theme';
-import Navbar from '@/components/ComponentNavbar';
-import Box from '@mui/material/Box';
-import GradientBackground from '@/components/GradientBackground';
-import { ThemeProvider } from '@/context/ThemeContext';
-import { useTheme } from '@/context/ThemeContext';
-import { LanguageProvider } from '@/context/LanguageContext';
-import 'swiper/css';
-import 'swiper/css/effect-cards';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import Footer from '@/components/ComponentFooter';
+import JsonLd from '@/components/JsonLd';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { metadata } from './layout-metadata';
+import { ClientLayout } from '@/components/ClientLayout';
 
-function RootLayoutContent({ children }: { children: React.ReactNode }) {
-  const { isDarkMode } = useTheme();
+const inter = Inter({ subsets: ['latin'] });
 
-  return (
-    <MuiThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      <CssBaseline />
-      <Box sx={{ 
-        display: 'flex', 
-        flexDirection: 'column',
-        minHeight: '100vh' 
-      }}>
-        <GradientBackground>
-          <Navbar titulo="Cabala Online" />
-          <Box sx={{ 
-            flex: 1,
-            py: 0,
-            '& > div': {
-              paddingTop: '0 !important'
-            },
-            width: '100%'
-          }}>
-            {children}
-          </Box>
-          <Footer />
-        </GradientBackground>
-      </Box>
-    </MuiThemeProvider>
-  );
-}
+export { metadata };
 
 export default function RootLayout({
   children,
@@ -50,13 +14,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
-      <body style={{ margin: 0 }}>
-        <LanguageProvider>
-          <ThemeProvider>
-            <RootLayoutContent>{children}</RootLayoutContent>
-          </ThemeProvider>
-        </LanguageProvider>
+    <html lang="pt-BR" suppressHydrationWarning className={inter.className}>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://cabalaonline.com.br" />
+        <meta name="theme-color" content="#000000" />
+        <JsonLd />
+      </head>
+      <body>
+        <ClientLayout>
+          {children}
+        </ClientLayout>
       </body>
     </html>
   );

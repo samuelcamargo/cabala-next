@@ -13,7 +13,7 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import { useTheme } from '@/context/ThemeContext';
+import { useAppTheme } from '@/context/ThemeContext';
 import LanguageSelector from '@/components/LanguageSelector';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -23,7 +23,7 @@ interface NavbarProps {
 
 export default function Navbar({ titulo }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { isDarkMode, toggleTheme } = useTheme();
+  const { isDarkMode, toggleTheme } = useAppTheme();
   const { t } = useLanguage();
 
   const handleDrawerToggle = () => {
