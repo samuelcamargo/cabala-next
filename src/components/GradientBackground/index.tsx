@@ -1,9 +1,9 @@
 'use client';
 import { Box } from '@mui/material';
-import { useTheme } from '@/context/ThemeContext';
+import { useAppTheme } from '@/context/ThemeContext';
 
 export default function GradientBackground({ children }: { children: React.ReactNode }) {
-  const { isDarkMode } = useTheme();
+  const { isDarkMode } = useAppTheme();
 
   return (
     <Box sx={{

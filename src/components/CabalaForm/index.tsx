@@ -10,6 +10,11 @@ import PsychologyIcon from '@mui/icons-material/Psychology';
 import PublicIcon from '@mui/icons-material/Public';
 import ChurchIcon from '@mui/icons-material/Church';
 import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 interface CabalaResult {
   numbers: {
@@ -193,40 +198,70 @@ export default function CabalaForm({ onCalculate }: CabalaFormProps) {
                     borderRadius: 2,
                     overflow: 'hidden',
                     boxShadow: 3,
-                    transform: 'scale(0.98)',
-                    transition: 'transform 0.3s ease-in-out',
-                    '&:hover': {
-                      transform: 'scale(1)',
-                    }
                   }}
                 >
-                  <Image
-                    src={`/images/${results?.destino?.numero}.jpg`}
-                    alt={`Destino ${results?.destino?.numero}`}
-                    fill
-                    style={{ 
-                      objectFit: 'cover',
-                      objectPosition: 'center'
+                  <Swiper
+                    modules={[Pagination, Navigation, Autoplay]}
+                    pagination={{ clickable: true }}
+                    navigation
+                    autoplay={{
+                      delay: 5000,
+                      disableOnInteraction: false,
                     }}
-                  />
-                  <Box
-                    sx={{
-                      position: 'absolute',
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      p: 3,
-                      background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                      color: 'white'
+                    loop={true}
+                    style={{
+                      width: '100%',
+                      height: '100%',
                     }}
                   >
-                    <Typography variant="h5" gutterBottom>
-                      {results?.destino?.orixa}
-                    </Typography>
-                    <Typography>
-                      Número do Destino: {results?.destino?.numero}
-                    </Typography>
-                  </Box>
+                    {results && [
+                      { title: t('results.money'), valor: results.dinheiro },
+                      { title: t('results.people'), valor: results.pessoas },
+                      { title: t('results.heart'), valor: results.coracao },
+                      { title: t('results.rational'), valor: results.racional },
+                      { title: t('results.destiny'), valor: results.destino },
+                      { title: t('results.faith'), valor: results.fe }
+                    ].map((item, index) => (
+                      <SwiperSlide key={index}>
+                        <Box sx={{
+                          position: 'relative',
+                          width: '100%',
+                          height: '100%',
+                        }}>
+                          <Image
+                            src={`/images/${item.valor.numero}.jpg`}
+                            alt={`${item.title} - ${item.valor.orixa}`}
+                            fill
+                            style={{ 
+                              objectFit: 'cover',
+                              objectPosition: 'center'
+                            }}
+                          />
+                          <Box
+                            sx={{
+                              position: 'absolute',
+                              bottom: 0,
+                              left: 0,
+                              right: 0,
+                              p: 3,
+                              background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
+                              color: 'white'
+                            }}
+                          >
+                            <Typography variant="h5" gutterBottom>
+                              {item.title}
+                            </Typography>
+                            <Typography variant="h6" gutterBottom>
+                              {item.valor.orixa}
+                            </Typography>
+                            <Typography>
+                              Número: {item.valor.numero}
+                            </Typography>
+                          </Box>
+                        </Box>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
                 </Box>
               </Grid>
             </Fade>
