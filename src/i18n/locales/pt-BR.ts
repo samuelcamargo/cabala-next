@@ -33,6 +33,20 @@ const ptBR = {
     monthDigits: 'Os dois próximos números representam o 1º e 2º dígito do seu mês de nascimento.',
     yearDigits: 'Os quatro próximos números representam o 1º ao 4º dígito do seu ano de nascimento.',
     example: 'Exemplo - 10/02/1989'
+  },
+  slides: {
+    slide1: {
+      title: 'Contos dos Orixás',
+      description: 'Descubra quais Orixás regem sua vida através da numerologia sagrada'
+    },
+    slide2: {
+      title: 'Interpretação dos Números',
+      description: 'Cada número está associado a um Orixá específico e suas energias'
+    },
+    slide3: {
+      title: 'Sua Conexão Espiritual',
+      description: 'Entenda como os Orixás influenciam diferentes aspectos da sua vida'
+    }
   }
 };
 

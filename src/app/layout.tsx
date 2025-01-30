@@ -8,6 +8,10 @@ import GradientBackground from '@/components/GradientBackground';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { useTheme } from '@/context/ThemeContext';
 import { LanguageProvider } from '@/context/LanguageContext';
+import 'swiper/css';
+import 'swiper/css/effect-cards';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 function RootLayoutContent({ children }: { children: React.ReactNode }) {
   const { isDarkMode } = useTheme();
@@ -17,7 +21,13 @@ function RootLayoutContent({ children }: { children: React.ReactNode }) {
       <CssBaseline />
       <GradientBackground>
         <Navbar titulo="Cabala Online" />
-        <Box sx={{ flex: 1, py: 4 }}>
+        <Box sx={{ 
+          flex: 1,
+          py: 0,
+          '& > div': {
+            paddingTop: '0 !important'
+          }
+        }}>
           {children}
         </Box>
       </GradientBackground>
