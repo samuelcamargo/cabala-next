@@ -47,6 +47,11 @@ const ptBR = {
       title: 'Sua Conexão Espiritual',
       description: 'Entenda como os Orixás influenciam diferentes aspectos da sua vida'
     }
+  },
+  footer: {
+    copyright: 'CABALA ONLINE',
+    slogan: 'FEITO COM AXÉ PARA PESSOAS INCRÍVEIS',
+    backToTop: 'VOLTAR AO TOPO'
   }
 };
 
