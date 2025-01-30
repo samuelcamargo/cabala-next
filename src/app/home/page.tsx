@@ -80,17 +80,17 @@ export default function Home() {
     {
       title: t('slides.slide1.title'),
       description: t('slides.slide1.description'),
-      backgroundImage: "/images/slide1.jpg"
+      backgroundImage: "/images/slide4.jpg"
     },
     {
       title: t('slides.slide2.title'),
       description: t('slides.slide2.description'),
-      backgroundImage: "/images/slide2.jpg"
+      backgroundImage: "/images/slide5.jpg"
     },
     {
       title: t('slides.slide3.title'),
       description: t('slides.slide3.description'),
-      backgroundImage: "/images/slide3.jpg"
+      backgroundImage: "/images/slide6.jpg"
     }
   ];
 

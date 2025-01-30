@@ -127,7 +127,7 @@ export default function Sobre() {
               >
                 <Box
                   component="img"
-                  src={showExample ? "/images/exemplo10.jpg" : "/images/slide1.jpg"}
+                  src={showExample ? "/images/exemplo10.jpg" : "/images/slide2.jpg"}
                   alt="Cabala"
                   sx={{
                     width: '100%',
