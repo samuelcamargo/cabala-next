@@ -43,4 +43,45 @@ export function calcularCabala(numeros: string[]) {
     destino: { numero: somaDestino, orixa: orixas[somaDestino] },
     fe: { numero: somaFe, orixa: orixas[somaFe] }
   };
+}
+
+export function calculateCabala(day: string, month: string, year: string) {
+  // Garante que day e month tenham sempre 2 dígitos
+  const dayPadded = day.padStart(2, '0');
+  const monthPadded = month.padStart(2, '0');
+  
+  // Converte a data em números individuais, mantendo os zeros
+  const numbers = [
+    parseInt(dayPadded[0]),
+    parseInt(dayPadded[1]),
+    parseInt(monthPadded[0]),
+    parseInt(monthPadded[1]),
+    ...year.split('').map(Number)
+  ];
+  
+  // Preenche o array até ter 8 números
+  while (numbers.length < 8) {
+    numbers.push(0);
+  }
+
+  // Cria o array de números para o cálculo da cabala
+  const numerosArray = numbers.slice(0, 8);
+  
+  // Calcula os resultados dos orixás
+  const resultadosOrixa = calcularCabala(numerosArray.map(String));
+  
+  // Retorna tanto os números quanto os resultados
+  return {
+    numbers: {
+      number1: numbers[0],
+      number2: numbers[1],
+      number3: numbers[2],
+      number4: numbers[3],
+      number5: numbers[4],
+      number6: numbers[5],
+      number7: numbers[6],
+      number8: numbers[7],
+    },
+    ...resultadosOrixa
+  };
 } 

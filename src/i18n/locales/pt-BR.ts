@@ -4,8 +4,10 @@ const ptBR = {
     about: 'Sobre'
   },
   form: {
+    birthDate: 'Data de Nascimento',
+    calculate: 'Calcular',
+    back: 'Voltar',
     number: 'Número',
-    calculate: 'CALCULAR',
     fillAllNumbers: 'Por favor, preencha todos os números',
     sum: 'Soma'
   },
