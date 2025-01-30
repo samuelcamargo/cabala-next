@@ -2,12 +2,14 @@
 
 import { Box, Container, Typography, Grid } from '@mui/material';
 import { useAppTheme } from '@/context/ThemeContext';
+import { useLanguage } from '@/context/LanguageContext';
 import { motion } from 'framer-motion';
 
 const MotionBox = motion(Box);
 
 export function SobreContent() {
   const { isDarkMode } = useAppTheme();
+  const { t } = useLanguage();
 
   return (
     <Container maxWidth="xl" sx={{ mt: { xs: 10, sm: 12 }, mb: 8 }}>
@@ -37,8 +39,7 @@ export function SobreContent() {
                     : '0 0 30px rgba(106, 27, 154, 0.2)'
                 }}
               >
-                Descubra sua
-                Conexão Espiritual
+                {t('about.title')}
               </Typography>
 
               <Typography 
@@ -53,7 +54,7 @@ export function SobreContent() {
                   lineHeight: 1.8
                 }}
               >
-                A Cabala Online é sua porta de entrada para o fascinante mundo da numerologia sagrada dos Orixás. Através de cálculos ancestrais, revelamos as energias divinas que guiam seu caminho e influenciam sua jornada espiritual.
+                {t('about.description')}
               </Typography>
 
               <Box sx={{ mb: 6 }}>
@@ -72,7 +73,7 @@ export function SobreContent() {
                       fontStyle: 'italic'
                     }}
                   >
-                    &ldquo;Cada número carrega uma vibração única, uma mensagem dos Orixás para iluminar seu destino e fortalecer sua conexão com o sagrado.&rdquo;
+                    {t('about.quote')}
                   </Typography>
                 </motion.div>
 
@@ -89,7 +90,7 @@ export function SobreContent() {
                       lineHeight: 1.8
                     }}
                   >
-                    Descubra quais Orixás regem sua vida e como suas energias podem transformar sua jornada espiritual. Uma experiência única de autoconhecimento e conexão com o divino.
+                    {t('about.callToAction')}
                   </Typography>
                 </motion.div>
               </Box>
@@ -116,7 +117,7 @@ export function SobreContent() {
             <Box
               component="img"
               src="/images/slide2.jpg"
-              alt="Cabala"
+              alt={t('common.cabalaAlt')}
               sx={{
                 width: '100%',
                 height: '100%',
@@ -152,7 +153,7 @@ export function SobreContent() {
                   fontSize: { xs: '1.5rem', md: '2rem' }
                 }}
               >
-                Cabala Online
+                {t('common.title')}
               </Typography>
             </Box>
           </MotionBox>

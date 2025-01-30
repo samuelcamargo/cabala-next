@@ -39,23 +39,23 @@ export default function Home() {
   const features = [
     {
       icon: <AutoAwesomeIcon sx={{ fontSize: 40 }} />,
-      title: 'Numerologia Sagrada',
-      description: 'A Cabala dos Orixás revela os números sagrados que influenciam sua vida, conectando você com as energias ancestrais.'
+      title: t('features.numerology.title'),
+      description: t('features.numerology.description')
     },
     {
       icon: <WavesIcon sx={{ fontSize: 40 }} />,
-      title: 'Energia dos Orixás',
-      description: 'Cada Orixá traz consigo uma energia única e poderosa, capaz de transformar e equilibrar diferentes aspectos da sua vida.'
+      title: t('features.energy.title'),
+      description: t('features.energy.description')
     },
     {
       icon: <LocalFloristIcon sx={{ fontSize: 40 }} />,
-      title: 'Sabedoria Ancestral',
-      description: 'Descubra a profunda sabedoria da tradição africana e como ela pode guiar seu caminho espiritual.'
+      title: t('features.wisdom.title'),
+      description: t('features.wisdom.description')
     },
     {
       icon: <SelfImprovementIcon sx={{ fontSize: 40 }} />,
-      title: 'Autoconhecimento',
-      description: 'Através dos números e suas conexões com os Orixás, você terá uma compreensão mais profunda de si mesmo.'
+      title: t('features.selfKnowledge.title'),
+      description: t('features.selfKnowledge.description')
     }
   ];
 
@@ -151,7 +151,7 @@ export default function Home() {
                 fontSize: { xs: '2rem', md: '2.5rem' }
               }}
             >
-              Comece sua Jornada Espiritual
+              {t('home.cta.title')}
             </Typography>
             <Typography
               sx={{
@@ -163,8 +163,7 @@ export default function Home() {
                 lineHeight: 1.8
               }}
             >
-              Insira sua data de nascimento e descubra os Orixás que regem seu caminho,
-              suas influências e como eles podem ajudar em sua evolução espiritual.
+              {t('home.cta.description')}
             </Typography>
             <Box 
               sx={{ 
